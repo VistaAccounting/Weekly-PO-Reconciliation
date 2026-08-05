@@ -174,14 +174,13 @@
   <div>
     <p class="page-eyebrow">Vista · Purchase order reconciliation</p>
     <h1 class="page-title">PO Reconciliation Dashboard</h1>
-    <p class="page-subtitle">Outstanding POs as of 7/28/2026 — POs beyond 30 days are outside payment terms</p>
+    <p class="page-subtitle">Outstanding POs as of 8/4/2026 — POs beyond 30 days are outside payment terms</p>
   </div>
-  <div class="page-date">As of July 28, 2026</div>
+  <div class="page-date">As of August 4, 2026</div>
 </div>
 
 <div class="tab-bar">
   <div class="tab active" onclick="showTab('produce')">Produce Purchase Orders</div>
-  <div class="tab" onclick="showTab('qp')">Quick Produce Purchase</div>
   <div class="tab" onclick="showTab('material')">Material Purchase Orders</div>
   <div class="tab" onclick="showTab('gl')">AP Charges</div>
 </div>
@@ -273,77 +272,6 @@
 </div>
 
 <!-- ═══════════════════════════ GL AP CHARGE SECTION ═══════════════════════════ -->
-<!-- ═══════════════════════════ QUICK PRODUCE PURCHASE SECTION ═══════════════════════════ -->
-<div class="section" id="section-qp">
-
-  <div class="kpi-grid">
-    <div class="kpi"><p class="kpi-label">Total invoices</p><p class="kpi-val" id="qp-k-total">—</p></div>
-    <div class="kpi"><p class="kpi-label">Total amount</p><p class="kpi-val" id="qp-k-amt">—</p></div>
-    <div class="kpi"><p class="kpi-label">Outside terms</p><p class="kpi-val red" id="qp-k-out">—</p></div>
-    <div class="kpi"><p class="kpi-label">Within terms</p><p class="kpi-val green" id="qp-k-in">—</p></div>
-    <div class="kpi"><p class="kpi-label">Avg days out</p><p class="kpi-val" id="qp-k-avg">—</p></div>
-  </div>
-
-  <div class="section-row">
-    <div class="card">
-      <p class="card-title">Amount by invoice</p>
-      <div style="position:relative;height:200px;">
-        <canvas id="qp-barChart" role="img" aria-label="Bar chart of quick produce purchase amounts">Quick produce purchase amounts.</canvas>
-      </div>
-      <div class="legend-row">
-        <span><span class="leg-dot" style="background:#C93535;"></span>Outside terms</span>
-        <span><span class="leg-dot" style="background:#4E8A18;"></span>Within terms</span>
-      </div>
-    </div>
-    <div class="card">
-      <p class="card-title">Status breakdown by amount</p>
-      <div style="position:relative;height:200px;">
-        <canvas id="qp-donutChart" role="img" aria-label="Donut chart showing outside vs within terms">Quick produce status breakdown.</canvas>
-      </div>
-      <div class="legend-row" id="qp-donut-legend"></div>
-    </div>
-  </div>
-
-  <div class="filters-bar">
-    <div class="filter-group"><label>Status</label>
-      <select id="qp-f-status">
-        <option value="all">All</option>
-        <option value="outside">Outside terms</option>
-        <option value="within">Within terms</option>
-      </select>
-    </div>
-    <div class="filter-group"><label>Vendor</label>
-      <select id="qp-f-vendor">
-        <option value="all">All vendors</option>
-        <option value="Mazzei Franconi Co., LLC">Mazzei Franconi</option>
-      </select>
-    </div>
-    <span class="results-count" id="qp-results-count"></span>
-  </div>
-
-  <div class="tbl-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th onclick="sortByQP('refnum')" id="qp-th-refnum">Invoice #</th>
-          <th onclick="sortByQP('vendor')" id="qp-th-vendor">Vendor</th>
-          <th onclick="sortByQP('date')"   id="qp-th-date">Date</th>
-          <th onclick="sortByQP('days')"   id="qp-th-days">Days out</th>
-          <th style="text-align:right" onclick="sortByQP('amt')" id="qp-th-amt">Amount</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody id="qp-tbl-body"></tbody>
-    </table>
-    <div class="no-results" id="qp-no-results" style="display:none;">No entries match the selected filters.</div>
-  </div>
-
-  <div class="footer">
-    <span>Source: GL Reconciliation — Purchase Order Purchased Product &amp; Invoicing Quick Purchase (produce vendors).</span>
-    <span>Click column headers to sort.</span>
-  </div>
-</div>
-
 <div class="section" id="section-gl">
 
   <div class="kpi-grid">
@@ -407,6 +335,7 @@
         <option value="VINE RIPE">VINE RIPE</option>
         <option value="Maxco Supply, Inc.">Maxco Supply</option>
         <option value="VISTA VINEYARDS LLC">Vista Vineyards</option>
+        <option value="DLJ Produce, Inc.">DLJ Produce</option>
         <option value="Sam's Club">Sam's Club</option>
         <option value="TLS Services">TLS Services</option>
         <option value="La Jolla Cold Storage, LLC">La Jolla Cold Storage</option>
@@ -420,7 +349,7 @@
         <option value="Bakersfield Birddogging Services">Bakersfield Birddogging</option>
         <option value="JR AG SERVICE LLC">JR AG Service</option>
         <option value="EXCEL AG SERVICES INC">Excel AG Services</option>
-        <option value="Fresh Taste Produce U.S.A and Associates">Fresh Taste Produce</option>
+        <option value="Fresh Taste Produce U.S.A &amp; Associates">Fresh Taste Produce</option>
         <option value="KandK INTERNATIONAL LOGISTICS LLC">K&K International Logistics</option>
         <option value="SUAREZ BROKERAGE">Suarez Brokerage</option>
         <option value="ARIZONA DEPARTMENT OF AGRICULTURE">AZ Dept of Agriculture</option>
@@ -448,7 +377,7 @@
   </div>
 
   <div class="footer">
-    <span>Source: Purchase Order GL Reconciliation report as of July 28, 2026.</span>
+    <span>Source: Purchase Order GL Reconciliation report as of August 4, 2026.</span>
     <span>Click column headers to sort.</span>
   </div>
 </div>
@@ -513,6 +442,7 @@
         <option value="AJA PREMIER">AJA PREMIER</option>
         <option value="Sensitech Inc">Sensitech</option>
         <option value="VISTA VINEYARDS LLC">Vista Vineyards</option>
+        <option value="DLJ Produce, Inc.">DLJ Produce</option>
       </select>
     </div>
     <span class="results-count" id="m-results-count"></span>
@@ -549,59 +479,63 @@
 
 <script>
 const PRODUCE = [
-  {po:'100114',vendor:'Mazzei Franconi Co., LLC',loc:'Columbine 1',date:'06/23/2026',days:35,qty:2160,amt:68040.0,qtyrecv:1980,recv:42570.0,status:'outside',type:'Table Grapes'},
-  {po:'100127',vendor:'VINE RIPE',loc:'Columbine 1',date:'06/26/2026',days:32,qty:1980,amt:55440.0,qtyrecv:1980,recv:55440.0,status:'outside',type:'Table Grapes'},
-  {po:'100137',vendor:'JV Sales',loc:'Columbine 1',date:'06/30/2026',days:28,qty:1000,amt:21500.0,qtyrecv:82,recv:1763.0,status:'within',type:'Table Grapes'},
-  {po:'100153',vendor:'VINE RIPE',loc:'Columbine 1',date:'07/07/2026',days:21,qty:1080,amt:28080.0,qtyrecv:1203,recv:31278.0,status:'within',type:'Table Grapes'},
-  {po:'100165',vendor:'VINE RIPE',loc:'Columbine 1',date:'07/10/2026',days:18,qty:100,amt:2500.0,qtyrecv:441,recv:11025.0,status:'within',type:'Table Grapes'},
-  {po:'100170',vendor:'VINE RIPE',loc:'Columbine 1',date:'07/11/2026',days:17,qty:1,amt:25.0,qtyrecv:699,recv:17475.0,status:'within',type:'Table Grapes'},
-  {po:'100205',vendor:'VINE RIPE',loc:'Columbine 1',date:'07/28/2026',days:0,qty:525,amt:16275.0,qtyrecv:0,recv:0.0,status:'within',type:'Table Grapes'},
-  {po:'100111',vendor:'VINE RIPE',loc:'Cool Link',date:'06/19/2026',days:39,qty:900,amt:21330.0,qtyrecv:900,recv:21330.0,status:'outside',type:'Table Grapes'},
+  {po:'100137',vendor:'JV Sales',loc:'Columbine 1',date:'06/30/2026',days:35,qty:1000,amt:21500.0,qtyrecv:82,recv:1763.0,status:'outside',type:'Table Grapes'},
+  {po:'100205',vendor:'VINE RIPE',loc:'Columbine 1',date:'07/28/2026',days:7,qty:525,amt:16275.0,qtyrecv:263,recv:8153.0,status:'within',type:'Table Grapes'},
+  {po:'100215',vendor:'VINE RIPE',loc:'Columbine 1',date:'07/30/2026',days:5,qty:262,amt:8122.0,qtyrecv:262,recv:8122.0,status:'within',type:'Table Grapes'},
+  {po:'100216',vendor:'VINE RIPE',loc:'Columbine 1',date:'07/31/2026',days:4,qty:180,amt:5040.0,qtyrecv:180,recv:5040.0,status:'within',type:'Table Grapes'},
+  {po:'100218',vendor:'VINE RIPE',loc:'Columbine 1',date:'08/03/2026',days:1,qty:360,amt:3600.0,qtyrecv:540,recv:5400.0,status:'within',type:'Table Grapes'},
+  {po:'100111',vendor:'VINE RIPE',loc:'Cool Link',date:'06/19/2026',days:46,qty:900,amt:21330.0,qtyrecv:900,recv:21330.0,status:'outside',type:'Table Grapes'},
 ];
 
 const MATERIAL = [
-  {po:'100036',vendor:'Agpack',loc:'Material SJV',date:'06/29/2026',days:29,qty:0,amt:31369.8,qtyrecv:0,recv:31369.8,status:'within',type:'Material'},
-  {po:'100129',vendor:'Agpack',loc:'Material SJV',date:'06/30/2026',days:28,qty:0,amt:25920.0,qtyrecv:0,recv:25920.0,status:'within',type:'Material'},
-  {po:'100130',vendor:'Agpack',loc:'Material SJV',date:'07/13/2026',days:15,qty:0,amt:19220.25,qtyrecv:0,recv:19220.25,status:'within',type:'Material'},
-  {po:'100185',vendor:'Agpack',loc:'Material SJV',date:'07/19/2026',days:9,qty:0,amt:7617.0,qtyrecv:0,recv:7617.0,status:'within',type:'Material'},
-  {po:'100206',vendor:'Agpack',loc:'Material SJV',date:'07/28/2026',days:0,qty:0,amt:12878.51,qtyrecv:0,recv:12878.51,status:'within',type:'Material'},
-  {po:'100065A',vendor:'IBS Supplies',loc:'Material SJV',date:'07/10/2026',days:18,qty:0,amt:99792.0,qtyrecv:0,recv:99792.0,status:'within',type:'Material'},
-  {po:'100065B',vendor:'IBS Supplies',loc:'Material SJV',date:'07/10/2026',days:18,qty:0,amt:99792.0,qtyrecv:0,recv:99792.0,status:'within',type:'Material'},
-  {po:'100065C',vendor:'IBS Supplies',loc:'Material SJV',date:'07/09/2026',days:19,qty:0,amt:99792.0,qtyrecv:0,recv:99792.0,status:'within',type:'Material'},
-  {po:'100065D',vendor:'IBS Supplies',loc:'Material SJV',date:'07/12/2026',days:16,qty:0,amt:9979.2,qtyrecv:0,recv:9979.2,status:'within',type:'Material'},
-  {po:'100065E',vendor:'IBS Supplies',loc:'Material SJV',date:'07/12/2026',days:16,qty:0,amt:99792.0,qtyrecv:0,recv:99792.0,status:'within',type:'Material'},
-  {po:'100065F',vendor:'IBS Supplies',loc:'Material SJV',date:'07/13/2026',days:15,qty:0,amt:99792.0,qtyrecv:0,recv:99792.0,status:'within',type:'Material'},
-  {po:'100065G',vendor:'IBS Supplies',loc:'Material SJV',date:'07/14/2026',days:14,qty:0,amt:69854.4,qtyrecv:0,recv:69854.4,status:'within',type:'Material'},
-  {po:'100065H',vendor:'IBS Supplies',loc:'Material SJV',date:'07/12/2026',days:16,qty:0,amt:119750.4,qtyrecv:0,recv:119750.4,status:'within',type:'Material'},
-  {po:'100072',vendor:'IBS Supplies',loc:'Material SJV',date:'07/26/2026',days:2,qty:0,amt:20976.0,qtyrecv:0,recv:20976.0,status:'within',type:'Material'},
-  {po:'100072',vendor:'IBS Supplies',loc:'Material SJV',date:'07/22/2026',days:6,qty:0,amt:20976.0,qtyrecv:0,recv:20976.0,status:'within',type:'Material'},
-  {po:'100078',vendor:'IBS Supplies',loc:'Material SJV',date:'07/26/2026',days:2,qty:0,amt:14288.0,qtyrecv:0,recv:14288.0,status:'within',type:'Material'},
-  {po:'100078',vendor:'IBS Supplies',loc:'Material SJV',date:'07/13/2026',days:15,qty:0,amt:14252.75,qtyrecv:0,recv:14252.75,status:'within',type:'Material'},
-  {po:'100164',vendor:'IBS Supplies',loc:'Material SJV',date:'07/15/2026',days:13,qty:0,amt:7224.0,qtyrecv:0,recv:7224.0,status:'within',type:'Material'},
-  {po:'100164',vendor:'IBS Supplies',loc:'Material SJV',date:'07/26/2026',days:2,qty:0,amt:6888.0,qtyrecv:0,recv:6888.0,status:'within',type:'Material'},
-  {po:'100025',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'06/04/2026',days:54,qty:0,amt:6625.6,qtyrecv:0,recv:6625.6,status:'outside',type:'Material'},
-  {po:'100030',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/13/2026',days:15,qty:0,amt:77435.4,qtyrecv:0,recv:77435.4,status:'within',type:'Material'},
-  {po:'100031',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/02/2026',days:26,qty:0,amt:27074.4,qtyrecv:0,recv:27074.4,status:'within',type:'Material'},
-  {po:'100032',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'06/05/2026',days:53,qty:0,amt:36709.75,qtyrecv:0,recv:36709.75,status:'outside',type:'Material'},
-  {po:'100033',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/13/2026',days:15,qty:0,amt:9074.4,qtyrecv:0,recv:9074.4,status:'within',type:'Material'},
-  {po:'100107',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/27/2026',days:1,qty:0,amt:342343.79,qtyrecv:0,recv:342343.79,status:'within',type:'Material'},
-  {po:'100108',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/27/2026',days:1,qty:0,amt:66389.4,qtyrecv:0,recv:66389.4,status:'within',type:'Material'},
-  {po:'100141',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/19/2026',days:9,qty:0,amt:38751.95,qtyrecv:0,recv:38751.95,status:'within',type:'Material'},
-  {po:'100141',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/26/2026',days:2,qty:0,amt:28347.5,qtyrecv:0,recv:28347.5,status:'within',type:'Material'},
-  {po:'100156',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/13/2026',days:15,qty:0,amt:12367.2,qtyrecv:0,recv:12367.2,status:'within',type:'Material'},
-  {po:'100186',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/26/2026',days:2,qty:0,amt:8292.0,qtyrecv:0,recv:8292.0,status:'within',type:'Material'},
-  {po:'100186',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/22/2026',days:6,qty:0,amt:5706.95,qtyrecv:0,recv:5706.95,status:'within',type:'Material'},
-  {po:'100188',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/26/2026',days:2,qty:0,amt:14111.1,qtyrecv:0,recv:14111.1,status:'within',type:'Material'},
-  {po:'100189',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/26/2026',days:2,qty:0,amt:18660.4,qtyrecv:0,recv:18660.4,status:'within',type:'Material'},
-  {po:'100200',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/26/2026',days:2,qty:0,amt:16624.5,qtyrecv:0,recv:16624.5,status:'within',type:'Material'},
-  {po:'100200',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/27/2026',days:1,qty:0,amt:22158.0,qtyrecv:0,recv:22158.0,status:'within',type:'Material'},
-  {po:'100037',vendor:"Mid Valley Packaging & Supply Co.",loc:'Material SJV',date:'07/07/2026',days:21,qty:0,amt:26082.0,qtyrecv:0,recv:26082.0,status:'within',type:'Material'},
-  {po:'100064',vendor:"Mid Valley Packaging & Supply Co.",loc:'Material SJV',date:'06/10/2026',days:48,qty:0,amt:9712.99,qtyrecv:0,recv:9712.99,status:'outside',type:'Material'},
-  {po:'100073',vendor:"Mid Valley Packaging & Supply Co.",loc:'Material SJV',date:'07/03/2026',days:25,qty:0,amt:17601.24,qtyrecv:0,recv:17601.24,status:'within',type:'Material'},
-  {po:'100106',vendor:'Russo Packaging LP',loc:'Material SJV',date:'07/08/2026',days:20,qty:0,amt:9135.0,qtyrecv:0,recv:9135.0,status:'within',type:'Material'},
-  {po:'100201',vendor:'Russo Packaging LP',loc:'Material SJV',date:'07/26/2026',days:2,qty:0,amt:24360.0,qtyrecv:0,recv:24360.0,status:'within',type:'Material'},
-  {po:'100050',vendor:"T&F Packaging LLC",loc:'Material SJV',date:'07/09/2026',days:19,qty:0,amt:110849.0,qtyrecv:0,recv:110849.0,status:'within',type:'Material'},
-  {po:'100203',vendor:'VISTA VINEYARDS LLC',loc:'Material SJV',date:'07/24/2026',days:4,qty:0,amt:11384.1,qtyrecv:0,recv:11384.1,status:'within',type:'Material'},
+  {po:'100036',vendor:'Agpack',loc:'Material SJV',date:'06/29/2026',days:36,qty:0,amt:31369.8,qtyrecv:0,recv:31369.8,status:'outside',type:'Material'},
+  {po:'100130',vendor:'Agpack',loc:'Material SJV',date:'07/13/2026',days:22,qty:0,amt:19220.25,qtyrecv:0,recv:19220.25,status:'within',type:'Material'},
+  {po:'100146',vendor:'Agpack',loc:'Material SJV',date:'07/07/2026',days:28,qty:0,amt:-1485.0,qtyrecv:0,recv:-1485.0,status:'within',type:'Material'},
+  {po:'100185',vendor:'Agpack',loc:'Material SJV',date:'07/19/2026',days:16,qty:0,amt:7617.0,qtyrecv:0,recv:7617.0,status:'within',type:'Material'},
+  {po:'100211',vendor:'Agpack',loc:'Material SJV',date:'08/04/2026',days:0,qty:0,amt:48174.0,qtyrecv:0,recv:48174.0,status:'within',type:'Material'},
+  {po:'100221',vendor:'Agpack',loc:'Material SJV',date:'08/04/2026',days:0,qty:0,amt:12811.59,qtyrecv:0,recv:12811.59,status:'within',type:'Material'},
+  {po:'100065A',vendor:'IBS Supplies',loc:'Material SJV',date:'07/10/2026',days:25,qty:0,amt:99792.0,qtyrecv:0,recv:99792.0,status:'within',type:'Material'},
+  {po:'100065B',vendor:'IBS Supplies',loc:'Material SJV',date:'07/10/2026',days:25,qty:0,amt:99792.0,qtyrecv:0,recv:99792.0,status:'within',type:'Material'},
+  {po:'100065C',vendor:'IBS Supplies',loc:'Material SJV',date:'07/09/2026',days:26,qty:0,amt:99792.0,qtyrecv:0,recv:99792.0,status:'within',type:'Material'},
+  {po:'100065D',vendor:'IBS Supplies',loc:'Material SJV',date:'07/12/2026',days:23,qty:0,amt:9979.2,qtyrecv:0,recv:9979.2,status:'within',type:'Material'},
+  {po:'100065E',vendor:'IBS Supplies',loc:'Material SJV',date:'07/12/2026',days:23,qty:0,amt:99792.0,qtyrecv:0,recv:99792.0,status:'within',type:'Material'},
+  {po:'100065F',vendor:'IBS Supplies',loc:'Material SJV',date:'07/13/2026',days:22,qty:0,amt:99792.0,qtyrecv:0,recv:99792.0,status:'within',type:'Material'},
+  {po:'100065G',vendor:'IBS Supplies',loc:'Material SJV',date:'07/14/2026',days:21,qty:0,amt:69854.4,qtyrecv:0,recv:69854.4,status:'within',type:'Material'},
+  {po:'100065H',vendor:'IBS Supplies',loc:'Material SJV',date:'07/12/2026',days:23,qty:0,amt:119750.4,qtyrecv:0,recv:119750.4,status:'within',type:'Material'},
+  {po:'100072',vendor:'IBS Supplies',loc:'Material SJV',date:'07/22/2026',days:13,qty:0,amt:20976.0,qtyrecv:0,recv:20976.0,status:'within',type:'Material'},
+  {po:'100072',vendor:'IBS Supplies',loc:'Material SJV',date:'08/04/2026',days:0,qty:0,amt:62928.0,qtyrecv:0,recv:62928.0,status:'within',type:'Material'},
+  {po:'100078',vendor:'IBS Supplies',loc:'Material SJV',date:'07/30/2026',days:5,qty:0,amt:28576.0,qtyrecv:0,recv:28576.0,status:'within',type:'Material'},
+  {po:'100078',vendor:'IBS Supplies',loc:'Material SJV',date:'07/13/2026',days:22,qty:0,amt:7108.75,qtyrecv:0,recv:7108.75,status:'within',type:'Material'},
+  {po:'100164',vendor:'IBS Supplies',loc:'Material SJV',date:'07/26/2026',days:9,qty:0,amt:6888.0,qtyrecv:0,recv:6888.0,status:'within',type:'Material'},
+  {po:'100025',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'06/04/2026',days:61,qty:0,amt:6625.6,qtyrecv:0,recv:6625.6,status:'outside',type:'Material'},
+  {po:'100030',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'08/03/2026',days:1,qty:0,amt:212154.6,qtyrecv:0,recv:212154.6,status:'within',type:'Material'},
+  {po:'100031',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/02/2026',days:33,qty:0,amt:27074.4,qtyrecv:0,recv:27074.4,status:'outside',type:'Material'},
+  {po:'100032',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'06/05/2026',days:60,qty:0,amt:36709.75,qtyrecv:0,recv:36709.75,status:'outside',type:'Material'},
+  {po:'100033',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/13/2026',days:22,qty:0,amt:9074.4,qtyrecv:0,recv:9074.4,status:'within',type:'Material'},
+  {po:'100107',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'08/03/2026',days:1,qty:0,amt:393297.39,qtyrecv:0,recv:393297.39,status:'within',type:'Material'},
+  {po:'100108',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'08/04/2026',days:0,qty:0,amt:170416.95,qtyrecv:0,recv:170416.95,status:'within',type:'Material'},
+  {po:'100122',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'08/04/2026',days:0,qty:0,amt:4969.2,qtyrecv:0,recv:4969.2,status:'within',type:'Material'},
+  {po:'100141',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/19/2026',days:16,qty:0,amt:25194.45,qtyrecv:0,recv:25194.45,status:'within',type:'Material'},
+  {po:'100158',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'08/03/2026',days:1,qty:0,amt:75611.7,qtyrecv:0,recv:75611.7,status:'within',type:'Material'},
+  {po:'100186',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'08/03/2026',days:1,qty:0,amt:5629.5,qtyrecv:0,recv:5629.5,status:'within',type:'Material'},
+  {po:'100186',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/26/2026',days:9,qty:0,amt:4356.0,qtyrecv:0,recv:4356.0,status:'within',type:'Material'},
+  {po:'100188',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'08/03/2026',days:1,qty:0,amt:6211.5,qtyrecv:0,recv:6211.5,status:'within',type:'Material'},
+  {po:'100188',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/26/2026',days:9,qty:0,amt:9192.0,qtyrecv:0,recv:9192.0,status:'within',type:'Material'},
+  {po:'100200',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'08/03/2026',days:1,qty:0,amt:10117.5,qtyrecv:0,recv:10117.5,status:'within',type:'Material'},
+  {po:'100200',vendor:'Maxco Supply, Inc.',loc:'Material SJV',date:'07/26/2026',days:9,qty:0,amt:96.0,qtyrecv:0,recv:96.0,status:'within',type:'Material'},
+  {po:'100064',vendor:'Mid Valley Packaging & Supply Co.',loc:'Material SJV',date:'06/10/2026',days:55,qty:0,amt:9712.99,qtyrecv:0,recv:9712.99,status:'outside',type:'Material'},
+  {po:'100073',vendor:'Mid Valley Packaging & Supply Co.',loc:'Material SJV',date:'07/03/2026',days:32,qty:0,amt:8753.89,qtyrecv:0,recv:8753.89,status:'outside',type:'Material'},
+  {po:'100093',vendor:'Mid Valley Packaging & Supply Co.',loc:'Material SJV',date:'08/03/2026',days:1,qty:0,amt:11936.45,qtyrecv:0,recv:11936.45,status:'within',type:'Material'},
+  {po:'100176',vendor:'Mid Valley Packaging & Supply Co.',loc:'Material SJV',date:'08/03/2026',days:1,qty:0,amt:9947.04,qtyrecv:0,recv:9947.04,status:'within',type:'Material'},
+  {po:'100192',vendor:'Mid Valley Packaging & Supply Co.',loc:'Material SJV',date:'07/28/2026',days:7,qty:0,amt:2772.0,qtyrecv:0,recv:2772.0,status:'within',type:'Material'},
+  {po:'100195',vendor:'Mid Valley Packaging & Supply Co.',loc:'Material SJV',date:'08/04/2026',days:0,qty:0,amt:7371.0,qtyrecv:0,recv:7371.0,status:'within',type:'Material'},
+  {po:'100212',vendor:'Mid Valley Packaging & Supply Co.',loc:'Material SJV',date:'08/04/2026',days:0,qty:0,amt:6567.75,qtyrecv:0,recv:6567.75,status:'within',type:'Material'},
+  {po:'100219',vendor:'Mid Valley Packaging & Supply Co.',loc:'Material SJV',date:'08/04/2026',days:0,qty:0,amt:1435.39,qtyrecv:0,recv:1435.39,status:'within',type:'Material'},
+  {po:'100106',vendor:'Russo Packaging LP',loc:'Material SJV',date:'07/08/2026',days:27,qty:0,amt:9135.0,qtyrecv:0,recv:9135.0,status:'within',type:'Material'},
+  {po:'100201',vendor:'Russo Packaging LP',loc:'Material SJV',date:'07/24/2026',days:11,qty:0,amt:-30450.0,qtyrecv:0,recv:-30450.0,status:'within',type:'Material'},
+  {po:'100050',vendor:"T&F Packaging LLC",loc:'Material SJV',date:'08/03/2026',days:1,qty:0,amt:123449.0,qtyrecv:0,recv:123449.0,status:'within',type:'Material'},
+  {po:'100082',vendor:"T&F Packaging LLC",loc:'Material SJV',date:'08/04/2026',days:0,qty:0,amt:8636.0,qtyrecv:0,recv:8636.0,status:'within',type:'Material'},
+  {po:'100203',vendor:'VISTA VINEYARDS LLC',loc:'Material SJV',date:'07/24/2026',days:11,qty:0,amt:11384.1,qtyrecv:0,recv:11384.1,status:'within',type:'Material'},
 ];
 
 const fmt  = n => '$' + Math.round(n).toLocaleString('en-US');
@@ -618,11 +552,10 @@ function showTab(tab) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelector(`.tab[onclick="showTab('${tab}')"]`).classList.add('active');
-  const sectionMap = {produce:'produce', qp:'qp', material:'material', gl:'gl'};
+  const sectionMap = {produce:'produce', material:'material', gl:'gl'};
   document.getElementById('section-' + sectionMap[tab]).classList.add('active');
   if (tab === 'produce') renderSection('p');
   else if (tab === 'material') renderSection('m');
-  else if (tab === 'qp') renderQP();
   else renderGL();
 }
 
@@ -744,220 +677,166 @@ function renderSection(prefix) {
 ['m-f-status','m-f-loc','m-f-vendor'].forEach(id => document.getElementById(id).addEventListener('change', () => renderSection('m')));
 
 const GL = [
-  {reftype:'Invoice Number',refnum:'100116',vendor:'Costco Wholesale Corporation',date:'05/12/2026',days:77,amt:-576.0,desc:'Invoicing - AP Charge',status:'outside'},
-  {reftype:'Invoice Number',refnum:'100129',vendor:'VISTA VINEYARDS LLC',date:'05/25/2026',days:64,amt:25.0,desc:'Invoicing - AP Charge',status:'outside'},
-  {reftype:'Invoice Number',refnum:'100161',vendor:'Costco Wholesale Corporation',date:'05/22/2026',days:67,amt:576.0,desc:'Invoicing - AP Charge',status:'outside'},
-  {reftype:'Invoice Number',refnum:'100167',vendor:'Allen Lund Company, LLC',date:'06/01/2026',days:57,amt:7900.0,desc:'Invoicing - AP Charge',status:'outside'},
-  {reftype:'Invoice Number',refnum:'100180',vendor:'VISTA VINEYARDS LLC',date:'05/27/2026',days:62,amt:25.0,desc:'Invoicing - AP Charge',status:'outside'},
-  {reftype:'Invoice Number',refnum:'100211',vendor:'Allen Lund Company, LLC',date:'06/11/2026',days:47,amt:7500.0,desc:'Invoicing - AP Charge',status:'outside'},
-  {reftype:'Invoice Number',refnum:'100234',vendor:'Allen Lund Company, LLC',date:'06/08/2026',days:50,amt:6800.0,desc:'Invoicing - AP Charge',status:'outside'},
-  {reftype:'Invoice Number',refnum:'100291',vendor:'Allen Lund Company, LLC',date:'06/22/2026',days:36,amt:7500.0,desc:'Invoicing - AP Charge',status:'outside'},
-  {reftype:'Invoice Number',refnum:'100326',vendor:'Allen Lund Company, LLC',date:'07/02/2026',days:26,amt:10800.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100343',vendor:'Allen Lund Company, LLC',date:'07/06/2026',days:22,amt:7900.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100364',vendor:'Allen Lund Company, LLC',date:'07/13/2026',days:15,amt:7900.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100367',vendor:'Allen Lund Company, LLC',date:'07/13/2026',days:15,amt:7900.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100368',vendor:'Allen Lund Company, LLC',date:'07/11/2026',days:17,amt:7900.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100423',vendor:'Allen Lund Company, LLC',date:'07/07/2026',days:21,amt:11500.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100429',vendor:'Allen Lund Company, LLC',date:'07/16/2026',days:12,amt:7900.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100445',vendor:'Allen Lund Company, LLC',date:'07/18/2026',days:10,amt:7600.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100447',vendor:'Allen Lund Company, LLC',date:'07/21/2026',days:7,amt:7800.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100491',vendor:'Allen Lund Company, LLC',date:'07/15/2026',days:13,amt:6400.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100492',vendor:'Allen Lund Company, LLC',date:'07/14/2026',days:14,amt:6400.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100496',vendor:'Allen Lund Company, LLC',date:'07/16/2026',days:12,amt:11200.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100499',vendor:'Allen Lund Company, LLC',date:'07/17/2026',days:11,amt:6500.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100500',vendor:'Allen Lund Company, LLC',date:'07/14/2026',days:14,amt:9050.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100503',vendor:'Allen Lund Company, LLC',date:'07/22/2026',days:6,amt:6800.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100505',vendor:'Allen Lund Company, LLC',date:'07/24/2026',days:4,amt:7300.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100506',vendor:'Allen Lund Company, LLC',date:'07/22/2026',days:6,amt:7300.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100559',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:1,amt:6758.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100563',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:1,amt:4000.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100564',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:1,amt:5420.4,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100565',vendor:'Allen Lund Company, LLC',date:'07/21/2026',days:7,amt:5420.4,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100567',vendor:'Allen Lund Company, LLC',date:'07/25/2026',days:3,amt:11300.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100570',vendor:'Allen Lund Company, LLC',date:'07/20/2026',days:8,amt:6167.6,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100574',vendor:'Allen Lund Company, LLC',date:'07/22/2026',days:6,amt:400.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100575',vendor:'Allen Lund Company, LLC',date:'07/20/2026',days:8,amt:4334.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100578',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:1,amt:2585.2,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100580',vendor:'Allen Lund Company, LLC',date:'07/21/2026',days:7,amt:2585.2,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100587',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:1,amt:4334.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100589',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:1,amt:6167.6,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100593',vendor:'Allen Lund Company, LLC',date:'07/21/2026',days:7,amt:11300.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100596',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:1,amt:4000.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100598',vendor:'Allen Lund Company, LLC',date:'07/22/2026',days:6,amt:4000.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100599',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:1,amt:6758.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100673',vendor:'Allen Lund Company, LLC',date:'07/23/2026',days:5,amt:9000.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'100711',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:1,amt:11300.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2610085',vendor:'COLUMBINE VINEYARDS',date:'07/14/2026',days:14,amt:1920.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2610087',vendor:'COLUMBINE VINEYARDS',date:'07/14/2026',days:14,amt:1920.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2610091',vendor:'Bakersfield Birddogging Services',date:'07/10/2026',days:18,amt:495.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2610092',vendor:'COLUMBINE VINEYARDS',date:'07/14/2026',days:14,amt:1920.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2610177',vendor:'Fresh Taste Produce U.S.A and Associates',date:'07/22/2026',days:6,amt:75.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2670024',vendor:'VISTA VINEYARDS LLC',date:'05/16/2026',days:73,amt:25.0,desc:'Invoicing - AP Charge',status:'outside'},
-  {reftype:'Invoice Number',refnum:'2670313',vendor:'TLS Services',date:'07/02/2026',days:26,amt:600.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2670318',vendor:'TLS Services',date:'07/25/2026',days:3,amt:300.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2670625',vendor:'Forward Cargo, LLC.',date:'07/10/2026',days:18,amt:1837.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2670721',vendor:'Forward Cargo, LLC.',date:'07/07/2026',days:21,amt:1837.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2670721',vendor:'Steadfast Shipping',date:'07/07/2026',days:21,amt:3647.2,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2670725',vendor:'Forward Cargo, LLC.',date:'07/13/2026',days:15,amt:1837.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2670734',vendor:'Forward Cargo, LLC.',date:'07/16/2026',days:12,amt:1837.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2670737',vendor:'Forward Cargo, LLC.',date:'07/20/2026',days:8,amt:1837.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2670738',vendor:'Forward Cargo, LLC.',date:'07/14/2026',days:14,amt:1837.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2670750',vendor:'Forward Cargo, LLC.',date:'07/21/2026',days:7,amt:1837.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2670752',vendor:'Forward Cargo, LLC.',date:'07/21/2026',days:7,amt:1837.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2670776',vendor:'Forward Cargo, LLC.',date:'07/22/2026',days:6,amt:1837.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2670776',vendor:'Steadfast Shipping',date:'07/22/2026',days:6,amt:4322.2,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2670810',vendor:'Forward Cargo, LLC.',date:'07/22/2026',days:6,amt:1837.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2670810',vendor:'Steadfast Shipping',date:'07/22/2026',days:6,amt:4322.2,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2670811',vendor:'Forward Cargo, LLC.',date:'07/17/2026',days:11,amt:1694.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2672006',vendor:'Forward Cargo, LLC.',date:'07/25/2026',days:3,amt:1837.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2672006',vendor:'Steadfast Shipping',date:'07/25/2026',days:3,amt:3797.2,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2672009',vendor:'Forward Cargo, LLC.',date:'07/25/2026',days:3,amt:1837.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2672009',vendor:'Steadfast Shipping',date:'07/25/2026',days:3,amt:3797.2,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2672011',vendor:'Forward Cargo, LLC.',date:'07/25/2026',days:3,amt:1837.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2672011',vendor:'Steadfast Shipping',date:'07/25/2026',days:3,amt:3797.2,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2672018',vendor:'TLS Services',date:'07/21/2026',days:7,amt:100.0,desc:'Invoicing - AP Charge',status:'within'},
-  {reftype:'Invoice Number',refnum:'2690053',vendor:'Cool Link, LLC.',date:'06/01/2026',days:57,amt:18.0,desc:'Invoicing - AP Charge',status:'outside'},
-  {reftype:'Invoice Number',refnum:'2690054',vendor:'Cool Link, LLC.',date:'06/01/2026',days:57,amt:18.0,desc:'Invoicing - AP Charge',status:'outside'},
-  {reftype:'Invoice Number',refnum:'2690055',vendor:'Cool Link, LLC.',date:'06/01/2026',days:57,amt:18.0,desc:'Invoicing - AP Charge',status:'outside'},
-  {reftype:'Invoice Number',refnum:'2690056',vendor:'Cool Link, LLC.',date:'06/01/2026',days:57,amt:18.0,desc:'Invoicing - AP Charge',status:'outside'},
-  {reftype:'PO Number',refnum:'100023',vendor:'Maxco Supply, Inc.',date:'03/05/2026',days:145,amt:-157.5,desc:'Purchase Order - AP Charge',status:'outside'},
-  {reftype:'PO Number',refnum:'100033',vendor:'Maxco Supply, Inc.',date:'07/01/2026',days:27,amt:-412.5,desc:'Purchase Order - AP Charge',status:'within'},
-  {reftype:'PO Number',refnum:'100203',vendor:'VISTA VINEYARDS LLC',date:'07/24/2026',days:4,amt:1350.0,desc:'Purchase Order - AP Charge',status:'within'},
-  {reftype:'Receiving Entry Number',refnum:'1095',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/27/2026',days:31,amt:322.5,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'1372',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/30/2026',days:28,amt:-322.5,desc:'Receiving - AP Charge',status:'within'},
-  {reftype:'Receiving Entry Number',refnum:'1622',vendor:'Empire AG Transport, INC',date:'07/06/2026',days:22,amt:500.0,desc:'Receiving - AP Charge',status:'within'},
-  {reftype:'Receiving Entry Number',refnum:'1658',vendor:'SUAREZ BROKERAGE',date:'07/06/2026',days:22,amt:-130.0,desc:'Receiving - AP Charge',status:'within'},
-  {reftype:'Receiving Entry Number',refnum:'168',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/06/2026',days:83,amt:-33.64,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'229',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/14/2026',days:75,amt:-302.78,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'229',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/14/2026',days:75,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'234',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/14/2026',days:75,amt:-367.28,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'234',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/14/2026',days:75,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'244',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/15/2026',days:74,amt:-436.25,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'244',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/15/2026',days:74,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'262',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/18/2026',days:71,amt:-258.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'262',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/18/2026',days:71,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'270',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/18/2026',days:71,amt:-513.53,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'270',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/18/2026',days:71,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'283',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/19/2026',days:70,amt:532.75,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'283',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/19/2026',days:70,amt:371.75,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'306',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/21/2026',days:68,amt:100.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'317',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/22/2026',days:67,amt:322.5,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'335',vendor:'SUAREZ BROKERAGE',date:'05/23/2026',days:66,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'356',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/25/2026',days:64,amt:-378.65,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'356',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/25/2026',days:64,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'361',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/26/2026',days:63,amt:258.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'363',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/26/2026',days:63,amt:-290.25,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'363',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/26/2026',days:63,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'364',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/26/2026',days:63,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'368',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/26/2026',days:63,amt:-130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'368',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/26/2026',days:63,amt:260.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'370',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/26/2026',days:63,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'371',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/26/2026',days:63,amt:-258.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'371',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/26/2026',days:63,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'379',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/27/2026',days:62,amt:-345.65,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'379',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/27/2026',days:62,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'387',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/27/2026',days:62,amt:-339.25,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'387',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/27/2026',days:62,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'399',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/28/2026',days:61,amt:-323.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'399',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/28/2026',days:61,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'406',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/29/2026',days:60,amt:615.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'406',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/29/2026',days:60,amt:630.75,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'408',vendor:'Cool Link, LLC.',date:'05/29/2026',days:60,amt:1021.2,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'413',vendor:'Cool Link, LLC.',date:'05/29/2026',days:60,amt:1159.2,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'417',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/29/2026',days:60,amt:-672.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'417',vendor:'Cool Link, LLC.',date:'05/29/2026',days:60,amt:952.2,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'417',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/29/2026',days:60,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'418',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/29/2026',days:60,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'423',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/30/2026',days:59,amt:-355.5,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'423',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/30/2026',days:59,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'424',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'05/30/2026',days:59,amt:-399.44,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'424',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'05/30/2026',days:59,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'437',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/01/2026',days:57,amt:-339.25,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'437',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'06/01/2026',days:57,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'441',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/01/2026',days:57,amt:-498.54,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'441',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'06/01/2026',days:57,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'442',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/01/2026',days:57,amt:-406.65,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'442',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'06/01/2026',days:57,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'455',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/02/2026',days:56,amt:-258.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'455',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'06/02/2026',days:56,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'459',vendor:'KandK INTERNATIONAL LOGISTICS LLC',date:'06/02/2026',days:56,amt:130.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'471',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/03/2026',days:55,amt:449.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'472',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/03/2026',days:55,amt:400.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'478',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/03/2026',days:55,amt:-322.5,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'479',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/03/2026',days:55,amt:-517.5,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'480',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/03/2026',days:55,amt:-474.5,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'484',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/03/2026',days:55,amt:-258.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'484',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/03/2026',days:55,amt:-322.5,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'498',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/04/2026',days:54,amt:449.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'499',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/04/2026',days:54,amt:347.86,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'506',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/04/2026',days:54,amt:-322.5,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'510',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/05/2026',days:53,amt:-497.25,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'542',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/05/2026',days:53,amt:347.86,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'543',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/05/2026',days:53,amt:347.86,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'544',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/06/2026',days:52,amt:-380.65,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'564',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/08/2026',days:50,amt:-258.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'570',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/08/2026',days:50,amt:-339.25,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'572',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/08/2026',days:50,amt:-492.15,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'601',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/10/2026',days:48,amt:-322.5,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'621',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/11/2026',days:47,amt:493.15,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'662',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/15/2026',days:43,amt:355.26,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'687',vendor:'Cool Link, LLC.',date:'06/17/2026',days:41,amt:289.8,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'688',vendor:'Cool Link, LLC.',date:'06/17/2026',days:41,amt:745.2,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'689',vendor:'Cool Link, LLC.',date:'06/17/2026',days:41,amt:1030.4,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'690',vendor:'Cool Link, LLC.',date:'06/17/2026',days:41,amt:699.2,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'691',vendor:'Cool Link, LLC.',date:'06/17/2026',days:41,amt:289.8,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'693',vendor:'Cool Link, LLC.',date:'06/17/2026',days:41,amt:625.6,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'694',vendor:'Cool Link, LLC.',date:'06/17/2026',days:41,amt:331.2,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'695',vendor:'Cool Link, LLC.',date:'06/17/2026',days:41,amt:904.82,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'696',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'06/17/2026',days:41,amt:380.0,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'696',vendor:'Cool Link, LLC.',date:'06/17/2026',days:41,amt:27.6,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Receiving Entry Number',refnum:'751',vendor:'Cool Link, LLC.',date:'06/20/2026',days:38,amt:289.8,desc:'Receiving - AP Charge',status:'outside'},
-  {reftype:'Repack Run Number',refnum:'101',vendor:'EXCEL AG SERVICES INC',date:'07/01/2026',days:27,amt:3791.19,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'102',vendor:'COLUMBINE VINEYARDS',date:'07/02/2026',days:26,amt:96.0,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'103',vendor:'COLUMBINE VINEYARDS',date:'07/02/2026',days:26,amt:6.6,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'104',vendor:'COLUMBINE VINEYARDS',date:'07/02/2026',days:26,amt:163.5,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'106',vendor:'EXCEL AG SERVICES INC',date:'07/02/2026',days:26,amt:4232.62,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'113',vendor:'Cool Link, LLC.',date:'07/06/2026',days:22,amt:133.5,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'114',vendor:'Cool Link, LLC.',date:'07/06/2026',days:22,amt:36.9,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'115',vendor:'Cool Link, LLC.',date:'07/06/2026',days:22,amt:16.8,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'116',vendor:'Cool Link, LLC.',date:'07/06/2026',days:22,amt:54.6,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'125',vendor:'Cool Link, LLC.',date:'07/07/2026',days:21,amt:16.2,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'127',vendor:'Cool Link, LLC.',date:'07/08/2026',days:20,amt:264.3,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'128',vendor:'Cool Link, LLC.',date:'07/08/2026',days:20,amt:95.4,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'130',vendor:'Cool Link, LLC.',date:'07/08/2026',days:20,amt:35.1,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'133',vendor:'Cool Link, LLC.',date:'07/09/2026',days:19,amt:23.4,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'134',vendor:'Cool Link, LLC.',date:'07/09/2026',days:19,amt:5.4,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'135',vendor:'Cool Link, LLC.',date:'07/09/2026',days:19,amt:27.0,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'139',vendor:'Cool Link, LLC.',date:'07/09/2026',days:19,amt:0.3,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'147',vendor:'COLUMBINE VINEYARDS',date:'07/14/2026',days:14,amt:55.5,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'151',vendor:'COLUMBINE VINEYARDS',date:'07/15/2026',days:13,amt:24.0,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'152',vendor:'COLUMBINE VINEYARDS',date:'07/15/2026',days:13,amt:27.0,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'156',vendor:'COLUMBINE VINEYARDS',date:'07/16/2026',days:12,amt:3.0,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'157',vendor:'COLUMBINE VINEYARDS',date:'07/16/2026',days:12,amt:20.7,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'158',vendor:'COLUMBINE VINEYARDS',date:'07/16/2026',days:12,amt:6.6,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'175',vendor:'COLUMBINE VINEYARDS',date:'07/20/2026',days:8,amt:195.6,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'176',vendor:'COLUMBINE VINEYARDS',date:'07/20/2026',days:8,amt:864.0,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'177',vendor:'COLUMBINE VINEYARDS',date:'07/20/2026',days:8,amt:21.0,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'178',vendor:'COLUMBINE VINEYARDS',date:'07/20/2026',days:8,amt:41.1,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'179',vendor:'COLUMBINE VINEYARDS',date:'07/20/2026',days:8,amt:27.0,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'186',vendor:'COLUMBINE VINEYARDS',date:'07/21/2026',days:7,amt:1.8,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'192',vendor:'COLUMBINE VINEYARDS',date:'07/22/2026',days:6,amt:34.2,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'198',vendor:'COLUMBINE VINEYARDS',date:'07/23/2026',days:5,amt:48.3,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'199',vendor:'COLUMBINE VINEYARDS',date:'07/23/2026',days:5,amt:0.9,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'200',vendor:'COLUMBINE VINEYARDS',date:'07/23/2026',days:5,amt:3.3,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'202',vendor:'COLUMBINE VINEYARDS',date:'07/24/2026',days:4,amt:170.7,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'204',vendor:'COLUMBINE VINEYARDS',date:'07/24/2026',days:4,amt:6.3,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'205',vendor:'COLUMBINE VINEYARDS',date:'07/24/2026',days:4,amt:12.9,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'209',vendor:'COLUMBINE VINEYARDS',date:'07/27/2026',days:1,amt:161.4,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'224',vendor:'COLUMBINE VINEYARDS',date:'07/17/2026',days:11,amt:120.0,desc:'Repacking - AP Charge',status:'within'},
-  {reftype:'Repack Run Number',refnum:'92',vendor:'COLUMBINE VINEYARDS',date:'06/26/2026',days:32,amt:24.0,desc:'Repacking - AP Charge',status:'outside'},
-  {reftype:'Transfer Order Number',refnum:'100418',vendor:'Allen Lund Company, LLC',date:'07/07/2026',days:21,amt:3000.0,desc:'Transfer - AP Charge',status:'within'},
-  {reftype:'Transfer Order Number',refnum:'100420',vendor:'JR AG SERVICE LLC',date:'07/06/2026',days:22,amt:350.0,desc:'Transfer - AP Charge',status:'within'},
-  {reftype:'Transfer Order Number',refnum:'100498',vendor:'La Jolla Cold Storage, LLC',date:'07/14/2026',days:14,amt:350.0,desc:'Transfer - AP Charge',status:'within'},
-  {reftype:'Transfer Order Number',refnum:'100600',vendor:'JR AG SERVICE LLC',date:'07/16/2026',days:12,amt:350.0,desc:'Transfer - AP Charge',status:'within'},
-  {reftype:'Transfer Order Number',refnum:'100602',vendor:'JR AG SERVICE LLC',date:'07/17/2026',days:11,amt:350.0,desc:'Transfer - AP Charge',status:'within'},
-  {reftype:'Transfer Order Number',refnum:'100606',vendor:'JR AG SERVICE LLC',date:'07/21/2026',days:7,amt:350.0,desc:'Transfer - AP Charge',status:'within'},
-  {reftype:'Transfer Order Number',refnum:'100708',vendor:'JR AG SERVICE LLC',date:'07/27/2026',days:1,amt:350.0,desc:'Transfer - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100116',vendor:'Costco Wholesale Corporation',date:'05/12/2026',days:84,amt:-576.0,desc:'Invoicing - AP Charge',status:'outside'},
+  {reftype:'Invoice Number',refnum:'100129',vendor:'VISTA VINEYARDS LLC',date:'05/25/2026',days:71,amt:25.0,desc:'Invoicing - AP Charge',status:'outside'},
+  {reftype:'Invoice Number',refnum:'100161',vendor:'Costco Wholesale Corporation',date:'05/22/2026',days:74,amt:576.0,desc:'Invoicing - AP Charge',status:'outside'},
+  {reftype:'Invoice Number',refnum:'100180',vendor:'VISTA VINEYARDS LLC',date:'05/27/2026',days:69,amt:25.0,desc:'Invoicing - AP Charge',status:'outside'},
+  {reftype:'Invoice Number',refnum:'100211',vendor:'Allen Lund Company, LLC',date:'06/11/2026',days:54,amt:7500.0,desc:'Invoicing - AP Charge',status:'outside'},
+  {reftype:'Invoice Number',refnum:'100291',vendor:'Allen Lund Company, LLC',date:'06/22/2026',days:43,amt:7500.0,desc:'Invoicing - AP Charge',status:'outside'},
+  {reftype:'Invoice Number',refnum:'100343',vendor:'Allen Lund Company, LLC',date:'07/06/2026',days:29,amt:7900.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100364',vendor:'Allen Lund Company, LLC',date:'07/13/2026',days:22,amt:7900.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100367',vendor:'Allen Lund Company, LLC',date:'07/13/2026',days:22,amt:7900.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100368',vendor:'Allen Lund Company, LLC',date:'07/11/2026',days:24,amt:7900.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100423',vendor:'Allen Lund Company, LLC',date:'07/07/2026',days:28,amt:11500.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100429',vendor:'Allen Lund Company, LLC',date:'07/16/2026',days:19,amt:7900.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100445',vendor:'Allen Lund Company, LLC',date:'07/18/2026',days:17,amt:7600.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100447',vendor:'Allen Lund Company, LLC',date:'07/21/2026',days:14,amt:7800.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100491',vendor:'Allen Lund Company, LLC',date:'07/15/2026',days:20,amt:6400.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100492',vendor:'Allen Lund Company, LLC',date:'07/14/2026',days:21,amt:6400.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100496',vendor:'Allen Lund Company, LLC',date:'07/16/2026',days:19,amt:11200.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100499',vendor:'Allen Lund Company, LLC',date:'07/17/2026',days:18,amt:6500.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100500',vendor:'Allen Lund Company, LLC',date:'07/14/2026',days:21,amt:9050.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100503',vendor:'Allen Lund Company, LLC',date:'07/22/2026',days:13,amt:6800.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100504',vendor:'Allen Lund Company, LLC',date:'07/29/2026',days:6,amt:6800.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100505',vendor:'Allen Lund Company, LLC',date:'07/24/2026',days:11,amt:7300.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100506',vendor:'Allen Lund Company, LLC',date:'07/22/2026',days:13,amt:7300.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100559',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:8,amt:6758.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100562',vendor:'Allen Lund Company, LLC',date:'08/01/2026',days:3,amt:6167.6,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100563',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:8,amt:4000.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100564',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:8,amt:5420.4,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100565',vendor:'Allen Lund Company, LLC',date:'07/21/2026',days:14,amt:5420.4,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100566',vendor:'Allen Lund Company, LLC',date:'07/31/2026',days:4,amt:5420.4,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100567',vendor:'Allen Lund Company, LLC',date:'07/25/2026',days:10,amt:11300.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100570',vendor:'Allen Lund Company, LLC',date:'07/20/2026',days:15,amt:6167.6,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100571',vendor:'Allen Lund Company, LLC',date:'08/04/2026',days:0,amt:11300.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100574',vendor:'Allen Lund Company, LLC',date:'07/22/2026',days:13,amt:400.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100575',vendor:'Allen Lund Company, LLC',date:'07/20/2026',days:15,amt:4334.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100577',vendor:'Allen Lund Company, LLC',date:'07/31/2026',days:4,amt:2585.2,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100578',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:8,amt:2585.2,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100580',vendor:'Allen Lund Company, LLC',date:'07/21/2026',days:14,amt:2585.2,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100585',vendor:'Allen Lund Company, LLC',date:'07/30/2026',days:5,amt:11300.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100587',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:8,amt:4334.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100588',vendor:'Allen Lund Company, LLC',date:'08/01/2026',days:3,amt:4334.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100589',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:8,amt:6167.6,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100593',vendor:'Allen Lund Company, LLC',date:'07/21/2026',days:14,amt:11300.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100595',vendor:'Allen Lund Company, LLC',date:'08/03/2026',days:1,amt:4000.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100596',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:8,amt:4000.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100597',vendor:'Allen Lund Company, LLC',date:'08/03/2026',days:1,amt:4000.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100598',vendor:'Allen Lund Company, LLC',date:'07/22/2026',days:13,amt:4000.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100599',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:8,amt:6758.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100607',vendor:'Allen Lund Company, LLC',date:'07/31/2026',days:4,amt:7300.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100608',vendor:'Allen Lund Company, LLC',date:'08/01/2026',days:3,amt:7300.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100609',vendor:'Allen Lund Company, LLC',date:'08/01/2026',days:3,amt:7300.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100610',vendor:'Allen Lund Company, LLC',date:'08/04/2026',days:0,amt:7300.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100611',vendor:'Allen Lund Company, LLC',date:'07/29/2026',days:6,amt:7300.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100617',vendor:'Allen Lund Company, LLC',date:'07/30/2026',days:5,amt:7300.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100673',vendor:'Allen Lund Company, LLC',date:'07/23/2026',days:12,amt:9000.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100675',vendor:'Allen Lund Company, LLC',date:'08/03/2026',days:1,amt:4000.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100679',vendor:'Allen Lund Company, LLC',date:'08/03/2026',days:1,amt:4000.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100682',vendor:'Allen Lund Company, LLC',date:'07/31/2026',days:4,amt:6300.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100683',vendor:'Allen Lund Company, LLC',date:'07/31/2026',days:4,amt:6300.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100686',vendor:'Allen Lund Company, LLC',date:'08/03/2026',days:1,amt:9000.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100687',vendor:'Allen Lund Company, LLC',date:'08/03/2026',days:1,amt:4799.6,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100691',vendor:'Allen Lund Company, LLC',date:'08/01/2026',days:3,amt:11300.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100694',vendor:'Allen Lund Company, LLC',date:'08/03/2026',days:1,amt:8700.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100695',vendor:'Allen Lund Company, LLC',date:'08/03/2026',days:1,amt:4800.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100698',vendor:'Allen Lund Company, LLC',date:'08/04/2026',days:0,amt:7000.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100699',vendor:'Allen Lund Company, LLC',date:'08/03/2026',days:1,amt:4900.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100702',vendor:'Allen Lund Company, LLC',date:'07/30/2026',days:5,amt:7000.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100704',vendor:'Allen Lund Company, LLC',date:'08/03/2026',days:1,amt:4900.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'100711',vendor:'Allen Lund Company, LLC',date:'07/27/2026',days:8,amt:11300.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2610091',vendor:'Bakersfield Birddogging Services',date:'07/10/2026',days:25,amt:495.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2610177',vendor:'Fresh Taste Produce U.S.A & Associates',date:'07/22/2026',days:13,amt:75.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2610212',vendor:'Fresh Taste Produce U.S.A & Associates',date:'07/30/2026',days:5,amt:150.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2670024',vendor:'VISTA VINEYARDS LLC',date:'05/16/2026',days:80,amt:25.0,desc:'Invoicing - AP Charge',status:'outside'},
+  {reftype:'Invoice Number',refnum:'2670313',vendor:'TLS Services',date:'07/02/2026',days:33,amt:600.0,desc:'Invoicing - AP Charge',status:'outside'},
+  {reftype:'Invoice Number',refnum:'2670318',vendor:'TLS Services',date:'07/25/2026',days:10,amt:600.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2670721',vendor:'Steadfast Shipping',date:'07/07/2026',days:28,amt:3647.2,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2670777',vendor:'Steadfast Shipping',date:'08/03/2026',days:1,amt:4322.2,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2670778',vendor:'Forward Cargo, LLC.',date:'08/03/2026',days:1,amt:1694.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2670778',vendor:'Steadfast Shipping',date:'08/03/2026',days:1,amt:4322.2,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2672005',vendor:'Steadfast Shipping',date:'07/30/2026',days:5,amt:3797.2,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2672007',vendor:'Forward Cargo, LLC.',date:'07/30/2026',days:5,amt:1837.0,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2672007',vendor:'Steadfast Shipping',date:'07/30/2026',days:5,amt:3797.2,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2672008',vendor:'Steadfast Shipping',date:'07/30/2026',days:5,amt:3797.2,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2672010',vendor:'Steadfast Shipping',date:'07/30/2026',days:5,amt:3797.2,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2672035',vendor:'Steadfast Shipping',date:'07/30/2026',days:5,amt:3797.2,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2672038',vendor:'Steadfast Shipping',date:'07/30/2026',days:5,amt:3797.2,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2672039',vendor:'Steadfast Shipping',date:'08/03/2026',days:1,amt:4322.2,desc:'Invoicing - AP Charge',status:'within'},
+  {reftype:'Invoice Number',refnum:'2690053',vendor:'Cool Link, LLC.',date:'06/01/2026',days:64,amt:18.0,desc:'Invoicing - AP Charge',status:'outside'},
+  {reftype:'Invoice Number',refnum:'2690054',vendor:'Cool Link, LLC.',date:'06/01/2026',days:64,amt:18.0,desc:'Invoicing - AP Charge',status:'outside'},
+  {reftype:'Invoice Number',refnum:'2690055',vendor:'Cool Link, LLC.',date:'06/01/2026',days:64,amt:18.0,desc:'Invoicing - AP Charge',status:'outside'},
+  {reftype:'Invoice Number',refnum:'2690056',vendor:'Cool Link, LLC.',date:'06/01/2026',days:64,amt:18.0,desc:'Invoicing - AP Charge',status:'outside'},
+  {reftype:'PO Number',refnum:'100023',vendor:'Maxco Supply, Inc.',date:'03/05/2026',days:152,amt:-157.5,desc:'Purchase Order - AP Charge',status:'outside'},
+  {reftype:'PO Number',refnum:'100033',vendor:'Maxco Supply, Inc.',date:'07/01/2026',days:34,amt:-412.5,desc:'Purchase Order - AP Charge',status:'outside'},
+  {reftype:'PO Number',refnum:'100073',vendor:'Mid Valley Packaging & Supply Co.',date:'07/16/2026',days:19,amt:-8822.3,desc:'Purchase Order - AP Charge',status:'within'},
+  {reftype:'PO Number',refnum:'100150',vendor:'Mid Valley Packaging & Supply Co.',date:'08/03/2026',days:1,amt:-926.31,desc:'Purchase Order - AP Charge',status:'within'},
+  {reftype:'PO Number',refnum:'100150',vendor:'Mid Valley Packaging & Supply Co.',date:'07/27/2026',days:8,amt:-1474.32,desc:'Purchase Order - AP Charge',status:'within'},
+  {reftype:'PO Number',refnum:'100150',vendor:'Mid Valley Packaging & Supply Co.',date:'07/29/2026',days:6,amt:-1131.38,desc:'Purchase Order - AP Charge',status:'within'},
+  {reftype:'PO Number',refnum:'100203',vendor:'VISTA VINEYARDS LLC',date:'07/24/2026',days:11,amt:1350.0,desc:'Purchase Order - AP Charge',status:'within'},
+  {reftype:'Receiving Entry Number',refnum:'1622',vendor:'Empire AG Transport, INC',date:'07/06/2026',days:29,amt:500.0,desc:'Receiving - AP Charge',status:'within'},
+  {reftype:'Receiving Entry Number',refnum:'168',vendor:'K&K INTERNATIONAL LOGISTICS LLC',date:'05/06/2026',days:90,amt:-33.64,desc:'Receiving - AP Charge',status:'outside'},
+  {reftype:'Receiving Entry Number',refnum:'408',vendor:'Cool Link, LLC.',date:'05/29/2026',days:67,amt:1021.2,desc:'Receiving - AP Charge',status:'outside'},
+  {reftype:'Receiving Entry Number',refnum:'413',vendor:'Cool Link, LLC.',date:'05/29/2026',days:67,amt:1159.2,desc:'Receiving - AP Charge',status:'outside'},
+  {reftype:'Receiving Entry Number',refnum:'417',vendor:'Cool Link, LLC.',date:'05/29/2026',days:67,amt:952.2,desc:'Receiving - AP Charge',status:'outside'},
+  {reftype:'Receiving Entry Number',refnum:'5382',vendor:'ARIZONA DEPARTMENT OF AGRICULTURE',date:'07/31/2026',days:4,amt:500.0,desc:'Receiving - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'102',vendor:'COLUMBINE VINEYARDS',date:'07/02/2026',days:33,amt:96.0,desc:'Repacking - AP Charge',status:'outside'},
+  {reftype:'Repack Run Number',refnum:'103',vendor:'COLUMBINE VINEYARDS',date:'07/02/2026',days:33,amt:6.6,desc:'Repacking - AP Charge',status:'outside'},
+  {reftype:'Repack Run Number',refnum:'104',vendor:'COLUMBINE VINEYARDS',date:'07/02/2026',days:33,amt:163.5,desc:'Repacking - AP Charge',status:'outside'},
+  {reftype:'Repack Run Number',refnum:'113',vendor:'Cool Link, LLC.',date:'07/06/2026',days:29,amt:133.5,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'114',vendor:'Cool Link, LLC.',date:'07/06/2026',days:29,amt:36.9,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'115',vendor:'Cool Link, LLC.',date:'07/06/2026',days:29,amt:16.8,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'116',vendor:'Cool Link, LLC.',date:'07/06/2026',days:29,amt:54.6,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'125',vendor:'Cool Link, LLC.',date:'07/07/2026',days:28,amt:16.2,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'127',vendor:'Cool Link, LLC.',date:'07/08/2026',days:27,amt:264.3,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'128',vendor:'Cool Link, LLC.',date:'07/08/2026',days:27,amt:95.4,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'130',vendor:'Cool Link, LLC.',date:'07/08/2026',days:27,amt:35.1,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'133',vendor:'Cool Link, LLC.',date:'07/09/2026',days:26,amt:23.4,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'134',vendor:'Cool Link, LLC.',date:'07/09/2026',days:26,amt:5.4,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'135',vendor:'Cool Link, LLC.',date:'07/09/2026',days:26,amt:27.0,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'139',vendor:'Cool Link, LLC.',date:'07/09/2026',days:26,amt:0.3,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'147',vendor:'COLUMBINE VINEYARDS',date:'07/14/2026',days:21,amt:55.5,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'151',vendor:'COLUMBINE VINEYARDS',date:'07/15/2026',days:20,amt:24.0,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'152',vendor:'COLUMBINE VINEYARDS',date:'07/15/2026',days:20,amt:27.0,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'156',vendor:'COLUMBINE VINEYARDS',date:'07/16/2026',days:19,amt:3.0,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'157',vendor:'COLUMBINE VINEYARDS',date:'07/16/2026',days:19,amt:20.7,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'158',vendor:'COLUMBINE VINEYARDS',date:'07/16/2026',days:19,amt:6.6,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'175',vendor:'COLUMBINE VINEYARDS',date:'07/20/2026',days:15,amt:195.6,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'176',vendor:'COLUMBINE VINEYARDS',date:'07/20/2026',days:15,amt:864.0,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'177',vendor:'COLUMBINE VINEYARDS',date:'07/20/2026',days:15,amt:21.0,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'178',vendor:'COLUMBINE VINEYARDS',date:'07/20/2026',days:15,amt:41.1,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'179',vendor:'COLUMBINE VINEYARDS',date:'07/20/2026',days:15,amt:27.0,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'186',vendor:'COLUMBINE VINEYARDS',date:'07/21/2026',days:14,amt:1.8,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'192',vendor:'COLUMBINE VINEYARDS',date:'07/22/2026',days:13,amt:34.2,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'198',vendor:'COLUMBINE VINEYARDS',date:'07/23/2026',days:12,amt:48.3,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'199',vendor:'COLUMBINE VINEYARDS',date:'07/23/2026',days:12,amt:0.9,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'200',vendor:'COLUMBINE VINEYARDS',date:'07/23/2026',days:12,amt:3.3,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'202',vendor:'COLUMBINE VINEYARDS',date:'07/24/2026',days:11,amt:170.7,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'204',vendor:'COLUMBINE VINEYARDS',date:'07/24/2026',days:11,amt:6.3,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'205',vendor:'COLUMBINE VINEYARDS',date:'07/24/2026',days:11,amt:12.9,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'209',vendor:'COLUMBINE VINEYARDS',date:'07/27/2026',days:8,amt:161.4,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'221',vendor:'COLUMBINE VINEYARDS',date:'07/28/2026',days:7,amt:720.0,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'224',vendor:'COLUMBINE VINEYARDS',date:'07/17/2026',days:18,amt:120.0,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'226',vendor:'COLUMBINE VINEYARDS',date:'07/28/2026',days:7,amt:24.0,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'231',vendor:'COLUMBINE VINEYARDS',date:'07/29/2026',days:6,amt:12.0,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'234',vendor:'COLUMBINE VINEYARDS',date:'07/29/2026',days:6,amt:12.3,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'238',vendor:'COLUMBINE VINEYARDS',date:'07/30/2026',days:5,amt:151.8,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'239',vendor:'COLUMBINE VINEYARDS',date:'07/30/2026',days:5,amt:27.6,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'241',vendor:'COLUMBINE VINEYARDS',date:'07/31/2026',days:4,amt:720.0,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'242',vendor:'COLUMBINE VINEYARDS',date:'07/31/2026',days:4,amt:840.0,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'244',vendor:'COLUMBINE VINEYARDS',date:'07/31/2026',days:4,amt:108.3,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'245',vendor:'COLUMBINE VINEYARDS',date:'07/31/2026',days:4,amt:528.0,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'247',vendor:'COLUMBINE VINEYARDS',date:'07/31/2026',days:4,amt:72.0,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'248',vendor:'COLUMBINE VINEYARDS',date:'07/31/2026',days:4,amt:32.7,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'249',vendor:'COLUMBINE VINEYARDS',date:'08/01/2026',days:3,amt:209.1,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'252',vendor:'COLUMBINE VINEYARDS',date:'08/03/2026',days:1,amt:504.0,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'253',vendor:'COLUMBINE VINEYARDS',date:'08/03/2026',days:1,amt:392.1,desc:'Repacking - AP Charge',status:'within'},
+  {reftype:'Repack Run Number',refnum:'92',vendor:'COLUMBINE VINEYARDS',date:'06/26/2026',days:39,amt:24.0,desc:'Repacking - AP Charge',status:'outside'},
+  {reftype:'Transfer Order Number',refnum:'100418',vendor:'Allen Lund Company, LLC',date:'07/07/2026',days:28,amt:3000.0,desc:'Transfer - AP Charge',status:'within'},
+  {reftype:'Transfer Order Number',refnum:'100420',vendor:'JR AG SERVICE LLC',date:'07/06/2026',days:29,amt:350.0,desc:'Transfer - AP Charge',status:'within'},
+  {reftype:'Transfer Order Number',refnum:'100498',vendor:'La Jolla Cold Storage, LLC',date:'07/14/2026',days:21,amt:350.0,desc:'Transfer - AP Charge',status:'within'},
+  {reftype:'Transfer Order Number',refnum:'100606',vendor:'JR AG SERVICE LLC',date:'07/21/2026',days:14,amt:350.0,desc:'Transfer - AP Charge',status:'within'},
+  {reftype:'Transfer Order Number',refnum:'100708',vendor:'JR AG SERVICE LLC',date:'07/27/2026',days:8,amt:350.0,desc:'Transfer - AP Charge',status:'within'},
 ].map(p => ({...p, status: p.days > 30 ? 'outside' : 'within'}));
 
 const GL_COLORS = {
@@ -1087,98 +966,8 @@ function renderGL() {
 
 ['g-f-status','g-f-desc','g-f-reftype','g-f-vendor'].forEach(id => document.getElementById(id).addEventListener('change', renderGL));
 
-const QP = [
-  {refnum:'100312',vendor:'Mazzei Franconi Co., LLC',date:'06/23/2026',days:35,amt:55440.0,status:'outside'},
-];
-
-state.qp = { sortKey:'days', sortDir:-1 };
-charts.qp = { bar:null, donut:null };
-
-function getFilteredQP() {
-  const fs = document.getElementById('qp-f-status').value;
-  const fv = document.getElementById('qp-f-vendor').value;
-  return QP.filter(p => (fs==='all'||p.status===fs) && (fv==='all'||p.vendor===fv));
-}
-
-function sortByQP(k) {
-  const s = state.qp;
-  if (s.sortKey===k) s.sortDir*=-1; else { s.sortKey=k; s.sortDir=-1; }
-  ['refnum','vendor','date','days','amt'].forEach(x => {
-    const th=document.getElementById('qp-th-'+x);
-    if(th){ th.classList.remove('sort-active'); const a=th.querySelector('.sort-arrow'); if(a) a.remove(); }
-  });
-  const th=document.getElementById('qp-th-'+k);
-  if(th){ th.classList.add('sort-active'); const a=document.createElement('span'); a.className='sort-arrow'; a.textContent=s.sortDir===1?' ▲':' ▼'; a.style.fontSize='9px'; th.appendChild(a); }
-  renderQP();
-}
-
-function renderQP() {
-  const s = state.qp;
-  const data = getFilteredQP().slice().sort((a,b) => {
-    const av=a[s.sortKey], bv=b[s.sortKey];
-    return av>bv?s.sortDir:av<bv?-s.sortDir:0;
-  });
-
-  document.getElementById('qp-results-count').textContent = data.length+' entr'+(data.length!==1?'ies':'y');
-  document.getElementById('qp-no-results').style.display = data.length?'none':'block';
-
-  const tbody=document.getElementById('qp-tbl-body'); tbody.innerHTML='';
-  const maxDays=Math.max(...data.map(d=>d.days),1);
-  data.forEach(p => {
-    const tr=document.createElement('tr');
-    if(p.status==='outside') tr.className='outside';
-    const barW=Math.max(Math.round((p.days/maxDays)*46),4);
-    const barColor=p.status==='outside'?'#C93535':'#4E8A18';
-    const dayColor=p.status==='outside'?'#7A1F1F':'#264D0E';
-    tr.innerHTML=`
-      <td style="font-family:'DM Mono',monospace;font-size:12px;">${p.refnum}</td>
-      <td>${p.vendor}</td>
-      <td style="font-family:'DM Mono',monospace;font-size:11px;">${p.date}</td>
-      <td><div class="days-wrap"><div class="days-bar" style="width:${barW}px;background:${barColor};"></div><span class="days-num" style="color:${dayColor};">${p.days}d</span></div></td>
-      <td style="text-align:right;font-family:'DM Mono',monospace;">${fmtD(p.amt)}</td>
-      <td><span class="badge ${p.status==='outside'?'b-out':'b-in'}">${p.status==='outside'?'Outside terms':'Within terms'}</span></td>`;
-    tbody.appendChild(tr);
-  });
-
-  const totalAmt=data.reduce((s,p)=>s+p.amt,0);
-  const outCount=data.filter(p=>p.status==='outside').length;
-  const inCount=data.filter(p=>p.status==='within').length;
-  const avgDays=data.length?Math.round(data.reduce((s,p)=>s+p.days,0)/data.length):0;
-  document.getElementById('qp-k-total').textContent=data.length;
-  document.getElementById('qp-k-amt').textContent=fmt(totalAmt);
-  document.getElementById('qp-k-out').textContent=outCount;
-  document.getElementById('qp-k-in').textContent=inCount;
-  document.getElementById('qp-k-avg').textContent=avgDays+'d';
-
-  if(charts.qp.bar) charts.qp.bar.destroy();
-  charts.qp.bar=new Chart(document.getElementById('qp-barChart'),{
-    type:'bar',
-    data:{ labels:data.map(p=>p.refnum), datasets:[{ data:data.map(p=>p.amt), backgroundColor:data.map(p=>p.status==='outside'?'#C93535':'#4E8A18'), borderWidth:0, borderRadius:4 }] },
-    options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label:ctx=>fmtD(ctx.parsed.y) } } }, scales:{ x:{ ticks:{ font:{size:9,family:'DM Mono'}, autoSkip:true, maxRotation:45 }, grid:{display:false} }, y:{ ticks:{ font:{size:10,family:'DM Mono'}, callback:v=>'$'+(v>=1000?(v/1000).toFixed(0)+'k':v) }, grid:{color:'rgba(0,0,0,0.05)'} } } }
-  });
-
-  const outAmt=data.filter(p=>p.status==='outside').reduce((s,p)=>s+p.amt,0);
-  const inAmt=data.filter(p=>p.status==='within').reduce((s,p)=>s+p.amt,0);
-  if(charts.qp.donut) charts.qp.donut.destroy();
-  charts.qp.donut=new Chart(document.getElementById('qp-donutChart'),{
-    type:'doughnut',
-    data:{ labels:['Outside terms','Within terms'], datasets:[{ data:[outAmt,inAmt].filter(v=>v>0), backgroundColor:[outAmt>0?'#C93535':null,inAmt>0?'#4E8A18':null].filter(Boolean), borderWidth:3, borderColor:'#FFFFFF' }] },
-    options:{ responsive:true, maintainAspectRatio:false, cutout:'66%', plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label:ctx=>ctx.label+': '+fmtD(ctx.parsed) } } } }
-  });
-
-  const lp=[];
-  if(outAmt>0) lp.push(`<span><span class="leg-dot" style="background:#C93535;"></span>Outside — ${fmt(outAmt)}</span>`);
-  if(inAmt>0) lp.push(`<span><span class="leg-dot" style="background:#4E8A18;"></span>Within — ${fmt(inAmt)}</span>`);
-  document.getElementById('qp-donut-legend').innerHTML=lp.join('');
-}
-
-['qp-f-status','qp-f-vendor'].forEach(id=>document.getElementById(id).addEventListener('change',renderQP));
-
 const gThDate = document.getElementById('g-th-date');
 if (gThDate) { gThDate.classList.add('sort-active'); const a = document.createElement('span'); a.className='sort-arrow'; a.textContent=' ▼'; a.style.fontSize='9px'; gThDate.appendChild(a); }
-
-const qpThDays = document.getElementById('qp-th-days');
-if (qpThDays) { qpThDays.classList.add('sort-active'); const a = document.createElement('span'); a.className='sort-arrow'; a.textContent=' ▼'; a.style.fontSize='9px'; qpThDays.appendChild(a); }
 
 ['p','m'].forEach(prefix => {
   const th = document.getElementById(prefix+'-th-days');
